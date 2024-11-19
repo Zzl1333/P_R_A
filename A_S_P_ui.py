@@ -19,7 +19,7 @@ from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
     QTextBrowser, QTextEdit, QWidget)
 
 class Ui_Page_Replacement_Algorithm(object):
-    def setupUi(self, Page_Replacement_Algorithm):
+    def ASP_setupUi(self, Page_Replacement_Algorithm):
         if not Page_Replacement_Algorithm.objectName():
             Page_Replacement_Algorithm.setObjectName(u"Page_Replacement_Algorithm")
         Page_Replacement_Algorithm.resize(1600, 900)
@@ -116,4 +116,5 @@ class Ui_Page_Replacement_Algorithm(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u957f\uff1a\u5f20\u4e50</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u5458\uff1a\u4efb\u5251\uff0c\u8fb9\u57ce\u78ca\uff0c\u5b59\u4e16\u4f73</span></p></body></html>", None))
     # retranslateUi
+
 

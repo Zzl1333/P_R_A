@@ -1,11 +1,29 @@
+import sys
 from A_S_P_ui import Ui_Page_Replacement_Algorithm
 from PySide6.QtWidgets import QApplication, QMainWindow
-import sys
+from LFU import mian_control
 # 按间距中的绿色按钮以运行脚本。
 class MainWindow(QMainWindow, Ui_Page_Replacement_Algorithm):
    def __init__(self):
        super(MainWindow, self).__init__()
-       self.setupUi(self)  # 加载 UI
+       self.ASP_setupUi(self)
+       self.init_slots()
+
+   def init_slots(self):
+       self.LFU.clicked.connect(self.LFU_bulid)
+
+       """# 绑定 FIFO 按钮的点击事件
+       self.FIFO.clicked.connect(self.open_LFU)
+       # 绑定 LRU 按钮的点击事件
+       self.LRU.clicked.connect(self.open_LFU)
+       # 绑定 LFU 按钮的点击事件
+       self.LFU.clicked.connect(self.open_LFU)
+       # 绑定 OPT 按钮的点击事件
+       self.OPT.clicked.connect(self.open_LFU)"""
+
+
+   def LFU_bulid(self) :
+        mian_control(self)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
