@@ -36,9 +36,9 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QLineEdit" name="Sequence_generation_line">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>240</y>
-     <width>311</width>
+     <x>30</x>
+     <y>370</y>
+     <width>411</width>
      <height>51</height>
     </rect>
    </property>
@@ -46,14 +46,14 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string/>
    </property>
    <property name="placeholderText">
-    <string>请输入页面访问序列（支持一键生成20位待测序列）</string>
+    <string>请输入页面访问序列（支持一键生成20位待测序列,回车停止输入）</string>
    </property>
   </widget>
   <widget class="QPushButton" name="Sequence_generation_Button">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>240</y>
+     <x>30</x>
+     <y>440</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -70,44 +70,34 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>810</x>
      <y>140</y>
-     <width>131</width>
+     <width>101</width>
      <height>661</height>
     </rect>
    </property>
+   <property name="accessibleName">
+    <string/>
+   </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
    <property name="rowCount">
-    <number>20</number>
+    <number>0</number>
    </property>
    <property name="columnCount">
     <number>1</number>
    </property>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <column/>
+   <column>
+    <property name="text">
+     <string>页面访问序列</string>
+    </property>
+   </column>
   </widget>
   <widget class="QLineEdit" name="Physical_block_generation_line">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>580</y>
-     <width>311</width>
+     <x>30</x>
+     <y>560</y>
+     <width>411</width>
      <height>51</height>
     </rect>
    </property>
@@ -115,7 +105,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string/>
    </property>
    <property name="placeholderText">
-    <string>请输入最大物理块数(支持一件生成15以内)</string>
+    <string>请输入最大物理块数(支持一件生成5-15以内的随机块数，回车停止输入)</string>
    </property>
   </widget>
   <widget class="QTableWidget" name="Physical_block_generation_table">
@@ -123,38 +113,27 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>1230</x>
      <y>140</y>
-     <width>221</width>
+     <width>101</width>
      <height>661</height>
     </rect>
    </property>
    <property name="rowCount">
-    <number>15</number>
+    <number>0</number>
    </property>
    <property name="columnCount">
     <number>1</number>
    </property>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <row/>
-   <column/>
+   <column>
+    <property name="text">
+     <string>物理块</string>
+    </property>
+   </column>
   </widget>
   <widget class="QPushButton" name="Physical_block_generation_Button">
    <property name="geometry">
     <rect>
-     <x>390</x>
-     <y>580</y>
+     <x>30</x>
+     <y>630</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -164,6 +143,70 @@ li.checked::marker { content: &quot;\2612&quot;; }
    </property>
    <property name="icon">
     <iconset theme="QIcon::ThemeIcon::GoNext"/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Back_L_S_P_Button">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>80</y>
+     <width>211</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Microsoft JhengHei UI</family>
+     <pointsize>12</pointsize>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>退回初始选择界面</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Sequence_cllear_button">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>440</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清空序列</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Physical_block_clear">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>630</y>
+     <width>91</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>清空物理块</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="continue_button">
+   <property name="geometry">
+    <rect>
+     <x>1020</x>
+     <y>720</y>
+     <width>141</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>读取一次页面</string>
    </property>
   </widget>
  </widget>

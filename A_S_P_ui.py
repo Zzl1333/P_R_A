@@ -64,7 +64,7 @@ class Ui_Page_Replacement_Algorithm(object):
     # setupUi
 
     def retranslateUi(self, Page_Replacement_Algorithm):
-        Page_Replacement_Algorithm.setWindowTitle(QCoreApplication.translate("Page_Replacement_Algorithm", u"Form", None))
+        Page_Replacement_Algorithm.setWindowTitle(QCoreApplication.translate("Page_Replacement_Algorithm", u"页面置换算法", None))
         self.FIFO.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"FIFO(\u5148\u8fdb\u5148\u51fa)", None))
         self.LRU.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"LRU(\u6700\u8fd1\u6700\u5c11\u4f7f\u7528)", None))
         self.LFU.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"LFU(\u6700\u5c11\u4f7f\u7528\u6b21\u6570)", None))
