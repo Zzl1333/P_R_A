@@ -7,6 +7,10 @@ class LFU_Window(QMainWindow, Ui_Form):
     def __init__(self, parent=None):
         super(LFU_Window, self).__init__(parent)  # 正确传递 parent 参数
         self.LFU_setupUi(self)  # 加载 UI
+        self.now_row = 0
+        self.now_col = 0
+        self.now_insert = 0
+
         self.code_number = 0
         self.Sequence_clear_button.clicked.connect(self.Sequence_cllear_button_makeup)
         self.Sequence_generation_line.returnPressed.connect(self.Sequence_generation_line_makeup);
@@ -68,6 +72,53 @@ class LFU_Window(QMainWindow, Ui_Form):
 
     def continue_read(self):
         """点击读取一次按钮"""
+        self.max_row = Physical_block_generation_table.rowCount()
+        self.max_col = Physical_block_generation_table.columnCount()
+
+        if self.now_insert < self.max_row :
+            for i in range(0,self.max_row) :
+                if self.Page_Visit_Sequence_table.item(0,0).text() == self.Physical_block_generation_table.item(i,0).text():
+                    """物理块中已存放当前页面"""
+                    self.Physical_block_generation_table.item(i,1).setText({self.Physical_block_generation_table.item(i,1).text() +1})
+                    self.Page_Visit_Sequence_table.removeRow(0)
+                    return 0
+            
+            self.Physical_block_generation_table.item(self.now_insert,0).setText({self.Page_Visit_Sequence_table.item(0,0).text()})
+            self.Physical_block_generation_table.item(self.now_insert,1).setText("0")
+            self.Page_Visit_Sequence_table.removeRow(0)
+            self.now_insert += 1
+        
+        elif self.now_insert == self.max_row :
+            """物理块已满，需要进行页面置换"""
+            for i in range(0,self.max_row) :
+                if self.Page_Visit_Sequence_table.item(0,0).text() == self.Physical_block_generation_table.item(i,0).text():
+                    """物理块中已存放当前页面"""
+                    self.Physical_block_generation_table.item(i,1).text() += 1
+                    self.Page_Visit_Sequence_table.removeRow(0)
+                    return 0
+
+            self.min_table_location = 0
+            self.min_table_number = 0
+            self.min_table_number = self.Physical_block_generation_table.item(0,0).text()
+            
+            """寻找最小使用页表"""
+            for i in range(1,self.max_row) :
+                if self.Physical_block_generation_table.item(i,0).text() < self.min_table_number :
+                    self.min_table_location = i
+                    self.min_table_number = self.Physical_block_generation_table.item(i,0).text()
+            
+            """更新物理块表"""
+            self.item = QTableWidgetItem()
+            self.item.setText({self.Page_Visit_Sequence_table.item(0,0).text()})
+            self.Physical_block_generation_table.setItem(self.min_table_location, 0, self.item)
+            self.Physical_block_generation_table.item(self.min_table_location,1).setText({self.Physical_block_generation_table.item(self.min_table_location,1).text() +1})
+            self.Page_Visit_Sequence_table.removeRow(0)
+        
+
+            
+
+
+
 
 
 def mian_control(parent=None):
