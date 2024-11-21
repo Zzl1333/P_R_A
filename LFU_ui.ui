@@ -16,9 +16,9 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>600</x>
+     <x>650</x>
      <y>30</y>
-     <width>321</width>
+     <width>271</width>
      <height>61</height>
     </rect>
    </property>
@@ -68,10 +68,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QTableWidget" name="Page_Visit_Sequence_table">
    <property name="geometry">
     <rect>
-     <x>810</x>
+     <x>940</x>
      <y>140</y>
-     <width>101</width>
-     <height>661</height>
+     <width>121</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="accessibleName">
@@ -113,19 +113,24 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>1230</x>
      <y>140</y>
-     <width>101</width>
-     <height>661</height>
+     <width>221</width>
+     <height>521</height>
     </rect>
    </property>
    <property name="rowCount">
     <number>0</number>
    </property>
    <property name="columnCount">
-    <number>1</number>
+    <number>2</number>
    </property>
    <column>
     <property name="text">
      <string>物理块</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>访问次数</string>
     </property>
    </column>
   </widget>
@@ -194,8 +199,8 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QPushButton" name="continue_button">
    <property name="geometry">
     <rect>
-     <x>1020</x>
-     <y>720</y>
+     <x>1300</x>
+     <y>750</y>
      <width>141</width>
      <height>71</height>
     </rect>
@@ -209,6 +214,28 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <string>读取一次页面</string>
    </property>
   </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>-7</x>
+     <y>-7</y>
+     <width>1621</width>
+     <height>921</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>plainTextEdit</zorder>
+  <zorder>textBrowser</zorder>
+  <zorder>Sequence_generation_line</zorder>
+  <zorder>Sequence_generation_Button</zorder>
+  <zorder>Page_Visit_Sequence_table</zorder>
+  <zorder>Physical_block_generation_line</zorder>
+  <zorder>Physical_block_generation_table</zorder>
+  <zorder>Physical_block_generation_Button</zorder>
+  <zorder>Back_L_S_P_Button</zorder>
+  <zorder>Sequence_cllear_button</zorder>
+  <zorder>Physical_block_clear</zorder>
+  <zorder>continue_button</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -198,6 +198,27 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:700;&quot;&gt;组员：任剑，边城磊，孙世佳&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
+  <widget class="QPlainTextEdit" name="plainTextEdit">
+   <property name="geometry">
+    <rect>
+     <x>-40</x>
+     <y>0</y>
+     <width>1661</width>
+     <height>931</height>
+    </rect>
+   </property>
+  </widget>
+  <zorder>plainTextEdit</zorder>
+  <zorder>FIFO</zorder>
+  <zorder>LRU</zorder>
+  <zorder>LFU</zorder>
+  <zorder>OPT</zorder>
+  <zorder>label_3</zorder>
+  <zorder>textEdit</zorder>
+  <zorder>textBrowser_2</zorder>
+  <zorder>textBrowser_3</zorder>
+  <zorder>textBrowser</zorder>
+  <zorder>textBrowser_4</zorder>
  </widget>
  <resources/>
  <connections/>

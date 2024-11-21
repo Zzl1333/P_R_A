@@ -15,8 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QLabel, QPushButton, QSizePolicy,
-    QTextBrowser, QTextEdit, QWidget)
+from PySide6.QtWidgets import (QApplication, QLabel, QPlainTextEdit, QPushButton,
+    QSizePolicy, QTextBrowser, QTextEdit, QWidget)
 
 class Ui_Page_Replacement_Algorithm(object):
     def ASP_setupUi(self, Page_Replacement_Algorithm):
@@ -57,6 +57,20 @@ class Ui_Page_Replacement_Algorithm(object):
         self.textBrowser_4 = QTextBrowser(Page_Replacement_Algorithm)
         self.textBrowser_4.setObjectName(u"textBrowser_4")
         self.textBrowser_4.setGeometry(QRect(1310, 810, 281, 192))
+        self.plainTextEdit = QPlainTextEdit(Page_Replacement_Algorithm)
+        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.plainTextEdit.setGeometry(QRect(-40, 0, 1661, 931))
+        self.plainTextEdit.raise_()
+        self.FIFO.raise_()
+        self.LRU.raise_()
+        self.LFU.raise_()
+        self.OPT.raise_()
+        self.label_3.raise_()
+        self.textEdit.raise_()
+        self.textBrowser_2.raise_()
+        self.textBrowser_3.raise_()
+        self.textBrowser.raise_()
+        self.textBrowser_4.raise_()
 
         self.retranslateUi(Page_Replacement_Algorithm)
 
@@ -116,5 +130,4 @@ class Ui_Page_Replacement_Algorithm(object):
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u957f\uff1a\u5f20\u4e50</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u5458\uff1a\u4efb\u5251\uff0c\u8fb9\u57ce\u78ca\uff0c\u5b59\u4e16\u4f73</span></p></body></html>", None))
     # retranslateUi
-
 
