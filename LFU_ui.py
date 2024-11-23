@@ -29,10 +29,10 @@ class Ui_Form(object):
         self.textBrowser.setGeometry(QRect(650, 30, 271, 61))
         self.Sequence_generation_line = QLineEdit(Form)
         self.Sequence_generation_line.setObjectName(u"Sequence_generation_line")
-        self.Sequence_generation_line.setGeometry(QRect(30, 370, 411, 51))
+        self.Sequence_generation_line.setGeometry(QRect(30, 560, 411, 51))
         self.Sequence_generation_Button = QPushButton(Form)
         self.Sequence_generation_Button.setObjectName(u"Sequence_generation_Button")
-        self.Sequence_generation_Button.setGeometry(QRect(30, 440, 81, 51))
+        self.Sequence_generation_Button.setGeometry(QRect(30, 640, 81, 51))
         icon = QIcon(QIcon.fromTheme(QIcon.ThemeIcon.GoNext))
         self.Sequence_generation_Button.setIcon(icon)
         self.Page_Visit_Sequence_table = QTableWidget(Form)
@@ -47,7 +47,7 @@ class Ui_Form(object):
         self.Page_Visit_Sequence_table.setColumnCount(1)
         self.Physical_block_generation_line = QLineEdit(Form)
         self.Physical_block_generation_line.setObjectName(u"Physical_block_generation_line")
-        self.Physical_block_generation_line.setGeometry(QRect(30, 560, 411, 51))
+        self.Physical_block_generation_line.setGeometry(QRect(30, 720, 411, 51))
         self.Physical_block_generation_table = QTableWidget(Form)
         if (self.Physical_block_generation_table.columnCount() < 2):
             self.Physical_block_generation_table.setColumnCount(2)
@@ -61,7 +61,7 @@ class Ui_Form(object):
         self.Physical_block_generation_table.setColumnCount(2)
         self.Physical_block_generation_Button = QPushButton(Form)
         self.Physical_block_generation_Button.setObjectName(u"Physical_block_generation_Button")
-        self.Physical_block_generation_Button.setGeometry(QRect(30, 630, 81, 51))
+        self.Physical_block_generation_Button.setGeometry(QRect(30, 800, 81, 51))
         self.Physical_block_generation_Button.setIcon(icon)
         self.Back_L_S_P_Button = QPushButton(Form)
         self.Back_L_S_P_Button.setObjectName(u"Back_L_S_P_Button")
@@ -73,10 +73,10 @@ class Ui_Form(object):
         self.Back_L_S_P_Button.setFont(font)
         self.Sequence_cllear_button = QPushButton(Form)
         self.Sequence_cllear_button.setObjectName(u"Sequence_cllear_button")
-        self.Sequence_cllear_button.setGeometry(QRect(170, 440, 91, 51))
+        self.Sequence_cllear_button.setGeometry(QRect(170, 640, 91, 51))
         self.Physical_block_clear = QPushButton(Form)
         self.Physical_block_clear.setObjectName(u"Physical_block_clear")
-        self.Physical_block_clear.setGeometry(QRect(170, 630, 91, 51))
+        self.Physical_block_clear.setGeometry(QRect(170, 800, 91, 51))
         self.continue_button = QPushButton(Form)
         self.continue_button.setObjectName(u"continue_button")
         self.continue_button.setGeometry(QRect(1300, 750, 141, 71))
@@ -86,17 +86,26 @@ class Ui_Form(object):
         self.plainTextEdit = QPlainTextEdit(Form)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
         self.plainTextEdit.setGeometry(QRect(-7, -7, 1621, 921))
+        self.textBrowser_2 = QTextBrowser(Form)
+        self.textBrowser_2.setObjectName(u"textBrowser_2")
+        self.textBrowser_2.setGeometry(QRect(30, 240, 381, 271))
+        self.widget = QWidget(Form)
+        self.widget.setObjectName(u"widget")
+        self.widget.setGeometry(QRect(890, 120, 601, 711))
+        self.widget.setAutoFillBackground(True)
         self.plainTextEdit.raise_()
         self.textBrowser.raise_()
         self.Sequence_generation_line.raise_()
         self.Sequence_generation_Button.raise_()
-        self.Page_Visit_Sequence_table.raise_()
         self.Physical_block_generation_line.raise_()
-        self.Physical_block_generation_table.raise_()
         self.Physical_block_generation_Button.raise_()
         self.Back_L_S_P_Button.raise_()
         self.Sequence_cllear_button.raise_()
         self.Physical_block_clear.raise_()
+        self.textBrowser_2.raise_()
+        self.widget.raise_()
+        self.Page_Visit_Sequence_table.raise_()
+        self.Physical_block_generation_table.raise_()
         self.continue_button.raise_()
 
         self.retranslateUi(Form)
@@ -105,7 +114,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"LFU(最少使用次数算法)", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
         self.textBrowser.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
@@ -133,5 +142,14 @@ class Ui_Form(object):
         self.Sequence_cllear_button.setText(QCoreApplication.translate("Form", u"\u6e05\u7a7a\u5e8f\u5217", None))
         self.Physical_block_clear.setText(QCoreApplication.translate("Form", u"\u6e05\u7a7a\u7269\u7406\u5757", None))
         self.continue_button.setText(QCoreApplication.translate("Form", u"\u8bfb\u53d6\u4e00\u6b21\u9875\u9762", None))
+        self.textBrowser_2.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'-apple-system','blinkmacsystemfont','Helvetica Neue','helvetica','segoe ui','arial','roboto','PingFang SC','miui','Hiragino Sans GB','Microsoft Yahei','sans-serif'; font-size:16pt; color:#060607; background-color:#ffffff;\">\u6700\u5c11\u4f7f\u7528\u7b97\u6cd5\uff08LFU\uff0cLeast Frequently Used\uff09\uff0c\u5176\u6838\u5fc3\u601d\u60f3\u662f\u5728\u53d1\u751f\u9875"
+                        "\u9762\u7f6e\u6362\u65f6\uff0c\u9009\u62e9\u90a3\u4e9b\u5728\u6700\u8fd1\u4e00\u6bb5\u65f6\u95f4\u5185\u88ab\u8bbf\u95ee\u6b21\u6570\u6700\u5c11\u7684\u9875\u9762\u8fdb\u884c\u7f6e\u6362\u3002\u8fd9\u79cd\u7b97\u6cd5\u57fa\u4e8e\u4e00\u4e2a\u5047\u8bbe\uff1a\u5982\u679c\u4e00\u4e2a\u9875\u9762\u5728\u5f88\u957f\u4e00\u6bb5\u65f6\u95f4\u5185\u88ab\u8bbf\u95ee\u6b21\u6570\u5f88\u5c11\uff0c\u90a3\u4e48\u5728\u672a\u6765\u5b83\u88ab\u8bbf\u95ee\u7684\u53ef\u80fd\u6027\u4e5f\u4f1a\u76f8\u5bf9\u8f83\u4f4e\u3002\u56e0\u6b64\uff0c\u5f53\u9700\u8981\u4e3a\u65b0\u9875\u9762\u817e\u51fa\u7a7a\u95f4\u65f6\uff0cLFU\u7b97\u6cd5\u4f1a\u4f18\u5148\u6dd8\u6c70\u90a3\u4e9b\u8bbf\u95ee\u6b21\u6570\u6700\u5c11\u7684\u9875\u9762\u3002</span></p></body></html>", None))
     # retranslateUi
 

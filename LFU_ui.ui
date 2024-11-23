@@ -37,7 +37,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>370</y>
+     <y>560</y>
      <width>411</width>
      <height>51</height>
     </rect>
@@ -53,7 +53,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>440</y>
+     <y>640</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -96,7 +96,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>560</y>
+     <y>720</y>
      <width>411</width>
      <height>51</height>
     </rect>
@@ -138,7 +138,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>630</y>
+     <y>800</y>
      <width>81</width>
      <height>51</height>
     </rect>
@@ -174,7 +174,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>440</y>
+     <y>640</y>
      <width>91</width>
      <height>51</height>
     </rect>
@@ -187,7 +187,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
    <property name="geometry">
     <rect>
      <x>170</x>
-     <y>630</y>
+     <y>800</y>
      <width>91</width>
      <height>51</height>
     </rect>
@@ -224,17 +224,52 @@ li.checked::marker { content: &quot;\2612&quot;; }
     </rect>
    </property>
   </widget>
+  <widget class="QTextBrowser" name="textBrowser_2">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>240</y>
+     <width>381</width>
+     <height>271</height>
+    </rect>
+   </property>
+   <property name="html">
+    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'-apple-system','blinkmacsystemfont','Helvetica Neue','helvetica','segoe ui','arial','roboto','PingFang SC','miui','Hiragino Sans GB','Microsoft Yahei','sans-serif'; font-size:16pt; color:#060607; background-color:#ffffff;&quot;&gt;最少使用算法（LFU，Least Frequently Used），其核心思想是在发生页面置换时，选择那些在最近一段时间内被访问次数最少的页面进行置换。这种算法基于一个假设：如果一个页面在很长一段时间内被访问次数很少，那么在未来它被访问的可能性也会相对较低。因此，当需要为新页面腾出空间时，LFU算法会优先淘汰那些访问次数最少的页面。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>120</y>
+     <width>601</width>
+     <height>711</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+  </widget>
   <zorder>plainTextEdit</zorder>
   <zorder>textBrowser</zorder>
   <zorder>Sequence_generation_line</zorder>
   <zorder>Sequence_generation_Button</zorder>
-  <zorder>Page_Visit_Sequence_table</zorder>
   <zorder>Physical_block_generation_line</zorder>
-  <zorder>Physical_block_generation_table</zorder>
   <zorder>Physical_block_generation_Button</zorder>
   <zorder>Back_L_S_P_Button</zorder>
   <zorder>Sequence_cllear_button</zorder>
   <zorder>Physical_block_clear</zorder>
+  <zorder>textBrowser_2</zorder>
+  <zorder>widget</zorder>
+  <zorder>Page_Visit_Sequence_table</zorder>
+  <zorder>Physical_block_generation_table</zorder>
   <zorder>continue_button</zorder>
  </widget>
  <resources/>
