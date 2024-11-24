@@ -21,6 +21,7 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_Button.clicked.connect(self.Physical_block_generation_Button_makeup)
 
         self.continue_button.clicked.connect(self.continue_read)
+        self.continue_make_button.clicked.connect(self.continue_make_read)
         self.Back_L_S_P_Button.clicked.connect(self.close)
 
     def Sequence_generation_line_makeup(self):
@@ -121,7 +122,11 @@ class LFU_Window(QMainWindow, Ui_Form):
 
         if self.Page_Visit_Sequence_table.rowCount() == 0:
             self.Sequence_cllear_button_makeup()
-        
+
+    def continue_make_read(self):
+        """一键生成按钮，检测到待访问页面则持续执行"""
+        while self.Page_Visit_Sequence_table.rowCount() != 0 :
+            self.continue_read()
 
 
 
