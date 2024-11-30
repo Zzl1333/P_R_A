@@ -151,8 +151,7 @@ class LRU_Window(QMainWindow, Ui_Form):
         # 清空页面访问序列
         self.clear_sequence()
 
-
-def mian_control(parent=None):
+def LRU_control(parent=None):
     if parent is None:
         parent = QApplication.instance()  # 获取现有的 QApplication 实例
     win = LRU_Window(parent)  # 传递 parent 参数

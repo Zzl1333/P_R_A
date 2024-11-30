@@ -130,7 +130,7 @@ class LFU_Window(QMainWindow, Ui_Form):
 
 
 
-def mian_control(parent=None):
+def LFU_control(parent=None):
     if parent is None:
         parent = QApplication.instance()  # 获取现有的 QApplication 实例
     win = LFU_Window(parent)  # 传递 parent 参数

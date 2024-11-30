@@ -47,7 +47,7 @@ def FIFO(page_capacity, page_references, output_text_edit, graphics_scene):
         graphics_scene.clear()
         for item in step:
             graphics_scene.addItem(item)
-        app.processEvents()  # 处理事件，确保图形更新
+         # 处理事件，确保图形更新
         import time
         time.sleep(2)  # 暂停1秒，以便观察每一步的变化
 
@@ -79,8 +79,8 @@ class FIFO(QMainWindow):
     FIFO类。
     """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, parent=None):
+        super().__init__(parent)
         layout = QVBoxLayout()
         self.setWindowTitle("FIFO 页面置换算法")
         self.setGeometry(50, 50, 1600, 900)
@@ -236,8 +236,13 @@ class FIFO(QMainWindow):
         self.run_button.setEnabled(True)
 
 
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    window = FIFO()
-    window.show()
-    sys.exit(app.exec())
+def FIFO_control(parent=None):
+    if parent is None:
+        parent = QApplication.instance()  # 获取现有的 QApplication 实例
+        if not parent:  # 如果没有现有的 QApplication 实例，则创建一个新的
+            parent = QApplication(sys.argv)
+    win = FIFO(parent)  # 传递 parent 参数
+    win.show()
+    return parent  # 返回 QApplication 实例以便在主程序中调用 exec()
+
+
