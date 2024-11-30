@@ -151,11 +151,9 @@ class LRU_Window(QMainWindow, Ui_Form):
         # 清空页面访问序列
         self.clear_sequence()
 
-def main_control():
-    app = QApplication(sys.argv)
-    win = LRU_Window()
-    win.show()
-    sys.exit(app.exec())
 
-if __name__ == "__main__":
-    main_control()
+def mian_control(parent=None):
+    if parent is None:
+        parent = QApplication.instance()  # 获取现有的 QApplication 实例
+    win = LRU_Window(parent)  # 传递 parent 参数
+    win.show()
