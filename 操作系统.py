@@ -110,22 +110,15 @@ class Stats:
             page_faults = 0  # 缺页次数
             verbose = True
             page=pages[number-1]
-            print(page)
             remaining_pages = pages[number:]  # 剩余页面访问序列
-            if verbose:
-                    print(f"步骤 {number }: 访问页面 {page}, 当前内存: {frame}, 剩余页面: {remaining_pages}")
             if page in frame:
-                    # 页面已在内存中，无需置换
-                    if verbose:
-                        print(f"  页面 {page} 已在内存中，无需置换。")
+                print()
             else:
                     # 页面不在内存中，发生缺页
                     page_faults += 1
                     # 如果内存未满，直接添加页面
                     if len(frame) < frame_size:
                         frame.append(page)
-                        if verbose:
-                            print(f"  内存未满，添加页面 {page} 到内存。")
                     else:
                         # 内存已满，选择未来最长时间不被使用的页面进行置换
                         furthest_use = {}
@@ -140,8 +133,6 @@ class Stats:
                         frame.remove(replacement)
                         frame.append(page)
             if verbose:
-                print(frame)
-                print(remaining_pages)
                 frame1 = frame
                 for i, frame1 in enumerate(frame):
                     item = QTableWidgetItem(frame1)  # 直接在创建项时设置文本
