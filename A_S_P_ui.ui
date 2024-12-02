@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1600</width>
-    <height>900</height>
+    <width>1664</width>
+    <height>1045</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -84,10 +84,10 @@
   <widget class="QTextEdit" name="textEdit">
    <property name="geometry">
     <rect>
-     <x>510</x>
-     <y>850</y>
+     <x>520</x>
+     <y>840</y>
      <width>491</width>
-     <height>111</height>
+     <height>51</height>
     </rect>
    </property>
    <property name="documentTitle">
@@ -157,7 +157,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
      <x>90</x>
      <y>320</y>
      <width>351</width>
-     <height>611</height>
+     <height>411</height>
     </rect>
    </property>
    <property name="documentTitle">
@@ -180,10 +180,10 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <widget class="QTextBrowser" name="textBrowser_4">
    <property name="geometry">
     <rect>
-     <x>1310</x>
-     <y>810</y>
-     <width>281</width>
-     <height>192</height>
+     <x>1260</x>
+     <y>830</y>
+     <width>291</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="html">
@@ -203,9 +203,22 @@ li.checked::marker { content: &quot;\2612&quot;; }
     <rect>
      <x>-40</x>
      <y>0</y>
-     <width>1661</width>
-     <height>931</height>
+     <width>1600</width>
+     <height>900</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="Algorithm_performance_analysis_button">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>700</y>
+     <width>201</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>置换性能分析</string>
    </property>
   </widget>
   <zorder>plainTextEdit</zorder>
@@ -219,6 +232,7 @@ li.checked::marker { content: &quot;\2612&quot;; }
   <zorder>textBrowser_3</zorder>
   <zorder>textBrowser</zorder>
   <zorder>textBrowser_4</zorder>
+  <zorder>Algorithm_performance_analysis_button</zorder>
  </widget>
  <resources/>
  <connections/>

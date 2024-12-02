@@ -5,6 +5,7 @@ from LFU import LFU_control
 from FIFO import FIFO_control
 from OPT import OPT_control
 from LRU import LRU_control
+from algorithm_performance_analysis import algorithm_control
 # 按间距中的绿色按钮以运行脚本。
 class MainWindow(QMainWindow, Ui_Page_Replacement_Algorithm):
    def __init__(self):
@@ -15,27 +16,24 @@ class MainWindow(QMainWindow, Ui_Page_Replacement_Algorithm):
    def init_slots(self):
        self.LFU.clicked.connect(self.LFU_bulid)
        self.FIFO.clicked.connect(self.FIFO_bulid)
-       self.OPT.clicked.connect(self.OPT_bulid)
+       """self.OPT.clicked.connect(self.OPT_bulid)"""
        self.LRU.clicked.connect(self.LRU_bulid)
-       """# 绑定 FIFO 按钮的点击事件
-       self.FIFO.clicked.connect(self.open_LFU)
-       # 绑定 LRU 按钮的点击事件
-       self.LRU.clicked.connect(self.open_LFU)
-       # 绑定 LFU 按钮的点击事件
-       self.LFU.clicked.connect(self.open_LFU)
-       # 绑定 OPT 按钮的点击事件
-       self.OPT.clicked.connect(self.open_LFU)"""
+       self.Algorithm_performance_analysis_button.clicked.connect(self.algorithm_performance_analysis_build)
+
+
 
 
    def LFU_bulid(self) :
         LFU_control(self)
    def FIFO_bulid(self) :
         FIFO_control(self)
-
    def LRU_bulid(self):
        LRU_control(self)
    def OPT_bulid(self):
        OPT_control(self)
+   def algorithm_performance_analysis_build(self):
+       algorithm_control(self)
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

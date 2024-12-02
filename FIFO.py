@@ -83,7 +83,7 @@ class FIFO(QMainWindow):
         super().__init__(parent)
         layout = QVBoxLayout()
         self.setWindowTitle("FIFO 页面置换算法")
-        self.setGeometry(50, 50, 1600, 900)
+        self.resize(1600, 900)
         self.title_label = QLabel("FIFO", self)
         self.title_label.setGeometry(220, 150, 200, 60)
         self.title_label.setStyleSheet("font-size: 70px; font-weight: bold; color: black;")

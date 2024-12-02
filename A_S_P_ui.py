@@ -41,7 +41,7 @@ class Ui_Page_Replacement_Algorithm(object):
         self.label_3.setPixmap(QPixmap(u"../../down/OIP-C.jpg"))
         self.textEdit = QTextEdit(Page_Replacement_Algorithm)
         self.textEdit.setObjectName(u"textEdit")
-        self.textEdit.setGeometry(QRect(510, 850, 491, 111))
+        self.textEdit.setGeometry(QRect(520, 840, 491, 51))
         self.textEdit.setLineWrapMode(QTextEdit.LineWrapMode.NoWrap)
         self.textBrowser_2 = QTextBrowser(Page_Replacement_Algorithm)
         self.textBrowser_2.setObjectName(u"textBrowser_2")
@@ -52,14 +52,17 @@ class Ui_Page_Replacement_Algorithm(object):
         self.textBrowser_3.setGeometry(QRect(630, 30, 321, 81))
         self.textBrowser = QTextBrowser(Page_Replacement_Algorithm)
         self.textBrowser.setObjectName(u"textBrowser")
-        self.textBrowser.setGeometry(QRect(90, 320, 351, 611))
+        self.textBrowser.setGeometry(QRect(90, 320, 351, 411))
         self.textBrowser.setUndoRedoEnabled(False)
         self.textBrowser_4 = QTextBrowser(Page_Replacement_Algorithm)
         self.textBrowser_4.setObjectName(u"textBrowser_4")
-        self.textBrowser_4.setGeometry(QRect(1310, 810, 281, 192))
+        self.textBrowser_4.setGeometry(QRect(1260, 830, 291, 61))
         self.plainTextEdit = QPlainTextEdit(Page_Replacement_Algorithm)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(-40, 0, 1661, 931))
+        self.plainTextEdit.setGeometry(QRect(-40, 0, 1600, 900))
+        self.Algorithm_performance_analysis_button = QPushButton(Page_Replacement_Algorithm)
+        self.Algorithm_performance_analysis_button.setObjectName(u"Algorithm_performance_analysis_button")
+        self.Algorithm_performance_analysis_button.setGeometry(QRect(680, 700, 201, 101))
         self.plainTextEdit.raise_()
         self.FIFO.raise_()
         self.LRU.raise_()
@@ -71,6 +74,7 @@ class Ui_Page_Replacement_Algorithm(object):
         self.textBrowser_3.raise_()
         self.textBrowser.raise_()
         self.textBrowser_4.raise_()
+        self.Algorithm_performance_analysis_button.raise_()
 
         self.retranslateUi(Page_Replacement_Algorithm)
 
@@ -78,7 +82,7 @@ class Ui_Page_Replacement_Algorithm(object):
     # setupUi
 
     def retranslateUi(self, Page_Replacement_Algorithm):
-        Page_Replacement_Algorithm.setWindowTitle(QCoreApplication.translate("Page_Replacement_Algorithm", u"页面置换算法", None))
+        Page_Replacement_Algorithm.setWindowTitle(QCoreApplication.translate("Page_Replacement_Algorithm", u"Form", None))
         self.FIFO.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"FIFO(\u5148\u8fdb\u5148\u51fa)", None))
         self.LRU.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"LRU(\u6700\u8fd1\u6700\u5c11\u4f7f\u7528)", None))
         self.LFU.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"LFU(\u6700\u5c11\u4f7f\u7528\u6b21\u6570)", None))
@@ -129,5 +133,6 @@ class Ui_Page_Replacement_Algorithm(object):
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u957f\uff1a\u5f20\u4e50</span></p>\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-weight:700;\">\u7ec4\u5458\uff1a\u4efb\u5251\uff0c\u8fb9\u57ce\u78ca\uff0c\u5b59\u4e16\u4f73</span></p></body></html>", None))
+        self.Algorithm_performance_analysis_button.setText(QCoreApplication.translate("Page_Replacement_Algorithm", u"\u7f6e\u6362\u6027\u80fd\u5206\u6790", None))
     # retranslateUi
 
