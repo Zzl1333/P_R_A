@@ -14,13 +14,9 @@ from matplotlib.backends.backend_qt5agg import (  # 注意：这里实际上应�
 )
 from matplotlib.figure import Figure
 
-class MplCanvas(FigureCanvas):
-    def __init__(self, parent=None, width=5, height=4, dpi=100):
-     fig = Figure(figsize=(width, height), dpi=dpi)
-     self.axes = fig.add_subplot(111)
-     super().__init__(fig)
 user_pages=''
 user_frame_size=0
+faultss=0
 number=-1
 frame = []
 remaining_pages=[]
@@ -42,15 +38,6 @@ class Stats(QMainWindow,Ui_SS):
         self.pushButton_7.clicked.connect(self.l_pushButton_7)
         table=self.tableWidget
         table1=self.tableWidget_2
-        self.mpl_canvas = MplCanvas(self.widget, width=5, height=4, dpi=100)
-        layout = QVBoxLayout(self.widget)  # 假设central_widget是一个QWidget，并且你希望在其上添加布局
-        layout.addWidget(self.mpl_canvas)
-        # 示例绘图
-        t = [0, 1, 2, 3, 4]
-        s = [0, 1, 4, 9, 16]
-        self.mpl_canvas.axes.plot(t, s)
-        self.mpl_canvas.draw()
-
     def edit(self):
         table = self.tableWidget
         global number
@@ -124,6 +111,7 @@ class Stats(QMainWindow,Ui_SS):
             global remaining_pages
             global frame
             global number
+            global faultss
             number+=1
             table = self.tableWidget
             table1 = self.tableWidget_2
@@ -145,6 +133,7 @@ class Stats(QMainWindow,Ui_SS):
                     else:
                         # 内存已满，选择未来最长时间不被使用的页面进行置换
                         furthest_use = {}
+                        faultss = faultss + 1
                         for f in frame:
                             try:
                                 furthest_use[f] = remaining_pages.index(f)  # 查找未来首次出现的位置
@@ -161,9 +150,13 @@ class Stats(QMainWindow,Ui_SS):
                     item = QTableWidgetItem(frame1)  # 直接在创建项时设置文本
                     table1.setItem(i, 0, item)  # 将项放置在正确的行（i）和列（0）
                 table.removeRow(0)
-
-
+                rate=faultss/number
+            percentage = "{:.2%}".format(rate)
+            self.lineEdit_3.setText(percentage)
     def l_pushButton_7(self):
+        global number
+        global faultss
+        faultss=0
         table = self.tableWidget
         table1 = self.tableWidget_2
         frame = [] # 当前内存中的页面
@@ -187,6 +180,7 @@ class Stats(QMainWindow,Ui_SS):
                 else:
                     # 内存已满，选择未来最长时间不被使用的页面进行置换
                     furthest_use = {}
+                    faultss=faultss+1
                     for f in frame:
                         try:
                             furthest_use[f] = remaining_pages.index(f)  # 查找未来首次出现的位置
@@ -197,6 +191,10 @@ class Stats(QMainWindow,Ui_SS):
                     replacements.append(replacement)
                     frame.remove(replacement)
                     frame.append(page)
+                    number=i
+                    rate = faultss / number
+                    percentage = "{:.2%}".format(rate)
+                    self.lineEdit_3.setText(percentage)
         if verbose:
             frame1=frame
             for i, frame1 in enumerate(frame):
@@ -204,6 +202,10 @@ class Stats(QMainWindow,Ui_SS):
                 item = QTableWidgetItem(frame1)  # 直接在创建项时设置文本
                 table1.setItem(i, 0, item)  # 将项放置在正确的行（i）和列（0）中
         return replacements, page_faults
+        faultss=0
+
+
+
 def OPT_control(parent=None):
     if parent is None:
         parent = QApplication.instance()  # 获取现有的 QApplication 实例

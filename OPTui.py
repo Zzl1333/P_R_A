@@ -23,10 +23,10 @@ class Ui_SS(object):
     def setupUi(self, SS):
         if not SS.objectName():
             SS.setObjectName(u"SS")
-        SS.resize(1291, 920)
+        SS.resize(1347, 933)
         self.plainTextEdit = QPlainTextEdit(SS)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(-10, -20, 1311, 951))
+        self.plainTextEdit.setGeometry(QRect(-10, -20, 1361, 951))
         self.textEdit = QTextEdit(SS)
         self.textEdit.setObjectName(u"textEdit")
         self.textEdit.setGeometry(QRect(500, 40, 231, 41))
@@ -47,7 +47,7 @@ class Ui_SS(object):
         self.pushButton_5.setGeometry(QRect(300, 790, 101, 41))
         self.pushButton_6 = QPushButton(SS)
         self.pushButton_6.setObjectName(u"pushButton_6")
-        self.pushButton_6.setGeometry(QRect(740, 790, 111, 41))
+        self.pushButton_6.setGeometry(QRect(630, 790, 111, 41))
         self.lineEdit = QLineEdit(SS)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(10, 480, 411, 41))
@@ -60,23 +60,26 @@ class Ui_SS(object):
         __qtablewidgetitem = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)
         self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(640, 190, 121, 531))
+        self.tableWidget.setGeometry(QRect(580, 190, 121, 531))
         self.tableWidget_2 = QTableWidget(SS)
         if (self.tableWidget_2.columnCount() < 2):
             self.tableWidget_2.setColumnCount(2)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(0, __qtablewidgetitem1)
         self.tableWidget_2.setObjectName(u"tableWidget_2")
-        self.tableWidget_2.setGeometry(QRect(1000, 190, 121, 531))
+        self.tableWidget_2.setGeometry(QRect(830, 190, 121, 531))
         self.pushButton_7 = QPushButton(SS)
         self.pushButton_7.setObjectName(u"pushButton_7")
-        self.pushButton_7.setGeometry(QRect(900, 790, 111, 41))
+        self.pushButton_7.setGeometry(QRect(790, 790, 111, 41))
         self.textBrowser = QTextBrowser(SS)
         self.textBrowser.setObjectName(u"textBrowser")
         self.textBrowser.setGeometry(QRect(40, 160, 331, 211))
-        self.widget = QWidget(SS)
-        self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(910, 50, 120, 80))
+        self.lineEdit_3 = QLineEdit(SS)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setGeometry(QRect(1110, 390, 141, 41))
+        self.lineEdit_4 = QLineEdit(SS)
+        self.lineEdit_4.setObjectName(u"lineEdit_4")
+        self.lineEdit_4.setGeometry(QRect(990, 390, 71, 41))
 
         self.retranslateUi(SS)
 
@@ -115,5 +118,6 @@ class Ui_SS(object):
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','Ubuntu','Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei UI','Microsoft YaHei','Source Han Sans CN','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:16pt; font-weight:700; color:#05073b; background-color:#fdfdfe;\">\u9875\u9762\u7f6e\u6362\u7b97\u6cd5OPT\uff0c"
                         "\u5373\u6700\u4f73\u7f6e\u6362\u7b97\u6cd5\uff08Optimal Page Replacement Algorithm\uff0cOPT\u7b97\u6cd5\u7684\u6838\u5fc3\u601d\u60f3\u662f\uff1a\u5728\u53d1\u751f\u7f3a\u9875\u5f02\u5e38\u65f6\uff0c\u9009\u62e9\u672a\u6765\u6700\u957f\u65f6\u95f4\u5185\u4e0d\u518d\u88ab\u8bbf\u95ee\u7684\u9875\u9762\u8fdb\u884c\u7f6e\u6362\uff0c\u4ee5\u786e\u4fdd\u6700\u4f4e\u7684\u7f3a\u9875\u7387</span></p></body></html>", None))
+        self.lineEdit_4.setText(QCoreApplication.translate("SS", u"  \u7f3a\u9875\u7387", None))
     # retranslateUi
 
