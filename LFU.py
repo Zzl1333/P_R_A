@@ -7,6 +7,8 @@ class LFU_Window(QMainWindow, Ui_Form):
     def __init__(self, parent=None):
         super(LFU_Window, self).__init__(parent)  # 正确传递 parent 参数
         self.LFU_setupUi(self)  # 加载 UI
+        self.total_ask_number = 0.0
+        self.missing_number = 0.0
         self.now_row = 0
         self.now_col = 0
         self.now_insert = 0
@@ -23,6 +25,7 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.continue_button.clicked.connect(self.continue_read)
         self.continue_make_button.clicked.connect(self.continue_make_read)
         self.Back_L_S_P_Button.clicked.connect(self.close)
+
 
     def Sequence_generation_line_makeup(self):
         """输入完成序列回车"""
@@ -45,6 +48,7 @@ class LFU_Window(QMainWindow, Ui_Form):
             self.item.setText(code)
             self.Page_Visit_Sequence_table.setItem(0, self.code_number, self.item)
             self.code_number += 1
+
     def Sequence_cllear_button_makeup(self):
         """点击清空序列按钮"""
         self.code_number = 0
@@ -71,9 +75,11 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_table.clearContents()
         self.Physical_block_generation_table.setRowCount(0)
         self.now_insert = 0
+        self.page_missing_show.clear()
 
     def continue_read(self):
         """点击读取一次按钮"""
+        self.total_ask_number += 1
         self.max_row = self.Physical_block_generation_table.rowCount()
         self.max_col = self.Physical_block_generation_table.columnCount()
 
@@ -100,6 +106,7 @@ class LFU_Window(QMainWindow, Ui_Form):
                     past_number = str(int(self.Physical_block_generation_table.item(i, 1).text()) + 1)
                     self.Physical_block_generation_table.item(i, 1).setText(past_number)
                     self.Page_Visit_Sequence_table.removeRow(0)
+
                     return 0
 
             self.min_table_location = 0
@@ -119,14 +126,20 @@ class LFU_Window(QMainWindow, Ui_Form):
             self.Physical_block_generation_table.setItem(self.min_table_location, 0, self.item)
             self.Physical_block_generation_table.setItem(self.min_table_location, 1, QTableWidgetItem("1"))
             self.Page_Visit_Sequence_table.removeRow(0)
+            self.missing_number += 1
 
         if self.Page_Visit_Sequence_table.rowCount() == 0:
             self.Sequence_cllear_button_makeup()
+
+        number_show = self.missing_number / self.total_ask_number
+        percentage = "{:.2%}".format(number_show)
+        self.page_missing_show.setText(percentage)
 
     def continue_make_read(self):
         """一键生成按钮，检测到待访问页面则持续执行"""
         while self.Page_Visit_Sequence_table.rowCount() != 0 :
             self.continue_read()
+        self.page_missing_show.setText()
 
 
 
