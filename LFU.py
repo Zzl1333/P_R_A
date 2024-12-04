@@ -6,9 +6,10 @@ import random
 class LFU_Window(QMainWindow, Ui_Form):
     def __init__(self, parent=None):
         super(LFU_Window, self).__init__(parent)  # 正确传递 parent 参数
-        self.LFU_setupUi(self)  # 加载 UI
-        self.total_ask_number = 0.0
-        self.missing_number = 0.0
+        self.setupUi(self)  # 加载 UI
+        self.total_ask_number = 0.0;"""总访问次数"""
+        self.missing_number = 0.0;"""缺页中断次数==置换次数"""
+        self.shoting_number = 0.0;"""命中次数"""
         self.now_row = 0
         self.now_col = 0
         self.now_insert = 0
@@ -26,7 +27,20 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.continue_make_button.clicked.connect(self.continue_make_read)
         self.Back_L_S_P_Button.clicked.connect(self.close)
 
+    def number_show(self):
+        """缺页率"""
+        number_show = self.missing_number / self.total_ask_number
+        percentage = "{:.2%}".format(number_show)
+        self.page_missing_show.setText(percentage)
 
+        """命中率"""
+        number_show = self.shoting_number / self.total_ask_number
+        percentage = "{:.2%}".format(number_show)
+        self.page_shoting_show.setText(percentage)
+
+        """置换次数"""
+        change_number = str(self.missing_number)
+        self.change_number_show.setText(change_number)
     def Sequence_generation_line_makeup(self):
         """输入完成序列回车"""
         self.sequence = self.Sequence_generation_line.text()
@@ -80,12 +94,13 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.missing_number = 0
 
     def continue_read(self):
-        """点击读取一次按钮"""
         self.total_ask_number += 1
+        """点击读取一次按钮"""
         self.max_row = self.Physical_block_generation_table.rowCount()
         self.max_col = self.Physical_block_generation_table.columnCount()
 
         if self.now_insert < self.max_row :
+            """物理块未放满"""
             for i in range(0,self.now_insert) :
                 if self.now_insert != 0:
                     if self.Page_Visit_Sequence_table.item(0,0).text() == self.Physical_block_generation_table.item(i,0).text():
@@ -93,19 +108,17 @@ class LFU_Window(QMainWindow, Ui_Form):
                         past_number = str(int(self.Physical_block_generation_table.item(i, 1).text()) + 1)
                         self.Physical_block_generation_table.item(i , 1).setText(past_number)
                         self.Page_Visit_Sequence_table.removeRow(0)
-                        number_show = self.missing_number / self.total_ask_number
-                        percentage = "{:.2%}".format(number_show)
-                        self.page_missing_show.setText(percentage)
+                        self.shoting_number += 1
+                        self.number_show()
                         return 0
 
             self.Physical_block_generation_table.setItem(self.now_insert, 0, QTableWidgetItem(self.Page_Visit_Sequence_table.item(0,0).text()))
             self.Physical_block_generation_table.setItem(self.now_insert, 1, QTableWidgetItem("1"))
             self.Page_Visit_Sequence_table.removeRow(0)
             self.now_insert += 1
+
             self.missing_number += 1
-            number_show = self.missing_number / self.total_ask_number
-            percentage = "{:.2%}".format(number_show)
-            self.page_missing_show.setText(percentage)
+            self.number_show()
 
         
         elif self.now_insert == self.max_row :
@@ -116,15 +129,14 @@ class LFU_Window(QMainWindow, Ui_Form):
                     past_number = str(int(self.Physical_block_generation_table.item(i, 1).text()) + 1)
                     self.Physical_block_generation_table.item(i, 1).setText(past_number)
                     self.Page_Visit_Sequence_table.removeRow(0)
-                    number_show = self.missing_number / self.total_ask_number
-                    percentage = "{:.2%}".format(number_show)
-                    self.page_missing_show.setText(percentage)
+                    self.shoting_number += 1
+                    self.number_show()
                     return 0
 
             self.min_table_location = 0
             self.min_table_number = 0
             self.min_table_number = self.Physical_block_generation_table.item(0,1).text()
-            
+
             """寻找最小使用页表"""
             for i in range(1,self.max_row) :
                 if self.Physical_block_generation_table.item(i,1).text() < self.min_table_number :
@@ -139,13 +151,14 @@ class LFU_Window(QMainWindow, Ui_Form):
             self.Physical_block_generation_table.setItem(self.min_table_location, 1, QTableWidgetItem("1"))
             self.Page_Visit_Sequence_table.removeRow(0)
             self.missing_number += 1
+            self.number_show()
 
         if self.Page_Visit_Sequence_table.rowCount() == 0:
             self.Sequence_cllear_button_makeup()
 
-        number_show = self.missing_number / self.total_ask_number
+        """number_show = self.missing_number / self.total_ask_number
         percentage = "{:.2%}".format(number_show)
-        self.page_missing_show.setText(percentage)
+        self.page_missing_show.setText(percentage)"""
 
     def continue_make_read(self):
         """一键生成按钮，检测到待访问页面则持续执行"""

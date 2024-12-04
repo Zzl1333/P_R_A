@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QHeaderView, QLineEdit, QPlainTextE
     QTextBrowser, QWidget)
 
 class Ui_Form(object):
-    def LFU_setupUi(self, Form):
+    def setupUi(self, Form):
         if not Form.objectName():
             Form.setObjectName(u"Form")
         Form.resize(1600, 900)
@@ -64,7 +64,7 @@ class Ui_Form(object):
         self.textBrowser_2.setGeometry(QRect(30, 240, 381, 271))
         self.widget = QWidget(Form)
         self.widget.setObjectName(u"widget")
-        self.widget.setGeometry(QRect(690, 120, 851, 711))
+        self.widget.setGeometry(QRect(690, 120, 881, 711))
         self.widget.setAutoFillBackground(True)
         self.continue_button = QPushButton(self.widget)
         self.continue_button.setObjectName(u"continue_button")
@@ -99,10 +99,22 @@ class Ui_Form(object):
         self.Physical_block_generation_table.setColumnCount(2)
         self.page_missing_show = QLineEdit(self.widget)
         self.page_missing_show.setObjectName(u"page_missing_show")
-        self.page_missing_show.setGeometry(QRect(690, 250, 151, 51))
+        self.page_missing_show.setGeometry(QRect(710, 250, 151, 51))
         self.textBrowser_3 = QTextBrowser(self.widget)
         self.textBrowser_3.setObjectName(u"textBrowser_3")
         self.textBrowser_3.setGeometry(QRect(600, 250, 81, 51))
+        self.textBrowser_4 = QTextBrowser(self.widget)
+        self.textBrowser_4.setObjectName(u"textBrowser_4")
+        self.textBrowser_4.setGeometry(QRect(600, 330, 81, 51))
+        self.textBrowser_5 = QTextBrowser(self.widget)
+        self.textBrowser_5.setObjectName(u"textBrowser_5")
+        self.textBrowser_5.setGeometry(QRect(590, 410, 111, 51))
+        self.page_shoting_show = QLineEdit(self.widget)
+        self.page_shoting_show.setObjectName(u"page_shoting_show")
+        self.page_shoting_show.setGeometry(QRect(710, 330, 151, 51))
+        self.change_number_show = QLineEdit(self.widget)
+        self.change_number_show.setObjectName(u"change_number_show")
+        self.change_number_show.setGeometry(QRect(710, 410, 151, 51))
         self.plainTextEdit.raise_()
         self.textBrowser.raise_()
         self.Sequence_generation_line.raise_()
@@ -167,5 +179,21 @@ class Ui_Form(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">\u7f3a\u9875\u7387</span></p></body></html>", None))
+        self.textBrowser_4.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">\u547d\u4e2d\u7387</span></p></body></html>", None))
+        self.textBrowser_5.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"hr { height: 1px; border-width: 0; }\n"
+"li.unchecked::marker { content: \"\\2610\"; }\n"
+"li.checked::marker { content: \"\\2612\"; }\n"
+"</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:16pt;\">\u7f6e\u6362\u6b21\u6570</span></p></body></html>", None))
     # retranslateUi
 
