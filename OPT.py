@@ -9,10 +9,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
 from PySide6.QtCore import QFile, QObject
 from PySide6.QtUiTools import QUiLoader
-from matplotlib.backends.backend_qt5agg import (  # 注意：这里实际上应该使用backend_qt6agg，但PySide6的对应后端可能未直接提供
-    FigureCanvasQTAgg as FigureCanvas,  # 如果遇到问题，请查找PySide6的官方Matplotlib后端
-)
-from matplotlib.figure import Figure
+
 
 user_pages=''
 user_frame_size=0
