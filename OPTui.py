@@ -23,10 +23,10 @@ class Ui_SS(object):
     def setupUi(self, SS):
         if not SS.objectName():
             SS.setObjectName(u"SS")
-        SS.resize(1600, 900)
+        SS.resize(1347, 933)
         self.plainTextEdit = QPlainTextEdit(SS)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(0, 0, 1600, 900))
+        self.plainTextEdit.setGeometry(QRect(-10, -20, 1361, 951))
         self.textEdit = QTextEdit(SS)
         self.textEdit.setObjectName(u"textEdit")
         self.textEdit.setGeometry(QRect(500, 40, 231, 41))
@@ -80,6 +80,18 @@ class Ui_SS(object):
         self.lineEdit_4 = QLineEdit(SS)
         self.lineEdit_4.setObjectName(u"lineEdit_4")
         self.lineEdit_4.setGeometry(QRect(990, 390, 71, 41))
+        self.lineEdit_5 = QLineEdit(SS)
+        self.lineEdit_5.setObjectName(u"lineEdit_5")
+        self.lineEdit_5.setGeometry(QRect(990, 470, 71, 41))
+        self.lineEdit_6 = QLineEdit(SS)
+        self.lineEdit_6.setObjectName(u"lineEdit_6")
+        self.lineEdit_6.setGeometry(QRect(990, 550, 71, 41))
+        self.lineEdit_7 = QLineEdit(SS)
+        self.lineEdit_7.setObjectName(u"lineEdit_7")
+        self.lineEdit_7.setGeometry(QRect(1110, 470, 141, 41))
+        self.lineEdit_8 = QLineEdit(SS)
+        self.lineEdit_8.setObjectName(u"lineEdit_8")
+        self.lineEdit_8.setGeometry(QRect(1110, 550, 141, 41))
 
         self.retranslateUi(SS)
 
@@ -118,6 +130,8 @@ class Ui_SS(object):
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-family:'-apple-system','BlinkMacSystemFont','Segoe UI','Roboto','Ubuntu','Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei UI','Microsoft YaHei','Source Han Sans CN','sans-serif','Apple Color Emoji','Segoe UI Emoji'; font-size:16pt; font-weight:700; color:#05073b; background-color:#fdfdfe;\">\u9875\u9762\u7f6e\u6362\u7b97\u6cd5OPT\uff0c"
                         "\u5373\u6700\u4f73\u7f6e\u6362\u7b97\u6cd5\uff08Optimal Page Replacement Algorithm\uff0cOPT\u7b97\u6cd5\u7684\u6838\u5fc3\u601d\u60f3\u662f\uff1a\u5728\u53d1\u751f\u7f3a\u9875\u5f02\u5e38\u65f6\uff0c\u9009\u62e9\u672a\u6765\u6700\u957f\u65f6\u95f4\u5185\u4e0d\u518d\u88ab\u8bbf\u95ee\u7684\u9875\u9762\u8fdb\u884c\u7f6e\u6362\uff0c\u4ee5\u786e\u4fdd\u6700\u4f4e\u7684\u7f3a\u9875\u7387</span></p></body></html>", None))
-        self.lineEdit_4.setText(QCoreApplication.translate("SS", u"  \u7f3a\u9875\u7387", None))
+        self.lineEdit_4.setText(QCoreApplication.translate("SS", u"  \u547d\u4e2d\u7387", None))
+        self.lineEdit_5.setText(QCoreApplication.translate("SS", u"  \u7f3a\u9875\u7387", None))
+        self.lineEdit_6.setText(QCoreApplication.translate("SS", u"  \u7f3a\u9875\u6b21\u6570", None))
     # retranslateUi
 
