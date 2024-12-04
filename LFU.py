@@ -76,6 +76,8 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_table.setRowCount(0)
         self.now_insert = 0
         self.page_missing_show.clear()
+        self.total_ask_number = 0
+        self.missing_number = 0
 
     def continue_read(self):
         """点击读取一次按钮"""
@@ -91,12 +93,20 @@ class LFU_Window(QMainWindow, Ui_Form):
                         past_number = str(int(self.Physical_block_generation_table.item(i, 1).text()) + 1)
                         self.Physical_block_generation_table.item(i , 1).setText(past_number)
                         self.Page_Visit_Sequence_table.removeRow(0)
+                        number_show = self.missing_number / self.total_ask_number
+                        percentage = "{:.2%}".format(number_show)
+                        self.page_missing_show.setText(percentage)
                         return 0
 
             self.Physical_block_generation_table.setItem(self.now_insert, 0, QTableWidgetItem(self.Page_Visit_Sequence_table.item(0,0).text()))
             self.Physical_block_generation_table.setItem(self.now_insert, 1, QTableWidgetItem("1"))
             self.Page_Visit_Sequence_table.removeRow(0)
             self.now_insert += 1
+            self.missing_number += 1
+            number_show = self.missing_number / self.total_ask_number
+            percentage = "{:.2%}".format(number_show)
+            self.page_missing_show.setText(percentage)
+
         
         elif self.now_insert == self.max_row :
             """物理块已满，需要进行页面置换"""
@@ -106,7 +116,9 @@ class LFU_Window(QMainWindow, Ui_Form):
                     past_number = str(int(self.Physical_block_generation_table.item(i, 1).text()) + 1)
                     self.Physical_block_generation_table.item(i, 1).setText(past_number)
                     self.Page_Visit_Sequence_table.removeRow(0)
-
+                    number_show = self.missing_number / self.total_ask_number
+                    percentage = "{:.2%}".format(number_show)
+                    self.page_missing_show.setText(percentage)
                     return 0
 
             self.min_table_location = 0
