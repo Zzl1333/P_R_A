@@ -11,11 +11,11 @@ class Ui_Form(object):
         Form.resize(1600, 900)
         Form.setWindowTitle("LRU")  # 设置窗口标题为 "LRU"
 
-        # 新增的显示缺页率和命中次数的文本框
+        # 新增的显示缺页率和置换次数的文本框
         self.Hit_Miss_Display = QTextBrowser(Form)
-        self.Hit_Miss_Display.setGeometry(QRect(1400, 30, 250, 60))
+        self.Hit_Miss_Display.setGeometry(QRect(1400, 30, 250, 85))
         self.Hit_Miss_Display.setObjectName("Hit_Miss_Display")
-        self.Hit_Miss_Display.setHtml("缺页率: 0%<br>命中次数: 0")
+        self.Hit_Miss_Display.setHtml("缺页率: 0%<br>页面命中率: 0<br>置换次数: 0")
         font = QFont()
         font.setBold(True)  # 设置字体为粗体
         font.setPointSize(14)  # 设置字体大小为14

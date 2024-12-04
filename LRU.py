@@ -12,6 +12,7 @@ class LRU_Window(QMainWindow, Ui_Form):
         self.usage_count = {}  # 用于跟踪每个页面的最后访问时间戳
         self.hit_count = 0  # 页面命中次数
         self.miss_count = 0  # 页面置换次数
+        self.total_accesses = 0
 
     def init_connections(self):
         self.Back_L_S_P_Button.clicked.connect(self.close)
@@ -85,13 +86,20 @@ class LRU_Window(QMainWindow, Ui_Form):
         return lru_index
 
     def update_hit_miss_display(self):
-        total_accesses = self.hit_count + self.miss_count
-        if total_accesses == 0:
-            page_fault_rate = 0
+        self.total_accesses = self.hit_count + self.miss_count
+        if self.total_accesses == 0:
+            page_fault_rate = 0.0
+            hit_rate = 0.0
         else:
-            page_fault_rate = (self.miss_count / total_accesses) * 100
-        # 使用 HTML 格式设置文本，使得缺页率和命中次数加粗并换行显示
-        self.Hit_Miss_Display.setHtml(f"缺页率: <b>{page_fault_rate:.2f}%</b><br><b>命中次数: {self.hit_count}</b>")
+            page_fault_rate = (self.miss_count / self.total_accesses) * 100
+            hit_rate = (self.hit_count / self.total_accesses) * 100
+
+        # 使用 HTML 格式设置文本，使得缺页率、页面命中率和命中次数加粗并换行显示
+        self.Hit_Miss_Display.setHtml(
+            f"缺页率: <b>{page_fault_rate:.2f}%</b><br>"
+            f"页面命中率: <b>{hit_rate:.2f}%</b><br>"
+            f"置换次数: <b>{self.miss_count}</b>"
+        )
 
 
     def continue_read(self):
