@@ -15,16 +15,15 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLineEdit, QPushButton,
-    QSizePolicy, QTextBrowser, QWidget)
-from PySide6 import QtWidgets
-import pyqtgraph as pg
+from PySide6.QtWidgets import (QApplication, QFrame, QHeaderView, QLineEdit,
+    QPushButton, QSizePolicy, QTableWidget, QTableWidgetItem,
+    QTextBrowser, QWidget)
 
 class Ui_A_P_A(object):
     def A_P_A_setupUi(self, A_P_A):
         if not A_P_A.objectName():
             A_P_A.setObjectName(u"A_P_A")
-        A_P_A.resize(1600, 900)
+        A_P_A.resize(1598, 900)
         self.frame = QFrame(A_P_A)
         self.frame.setObjectName(u"frame")
         self.frame.setGeometry(QRect(-10, -10, 1600, 921))
@@ -57,11 +56,30 @@ class Ui_A_P_A(object):
         self.textBrowser = QTextBrowser(self.frame)
         self.textBrowser.setObjectName(u"textBrowser")
         self.textBrowser.setGeometry(QRect(660, 40, 211, 51))
+        self.Create_page_missing_Image_button = QPushButton(self.frame)
+        self.Create_page_missing_Image_button.setObjectName(u"Create_page_missing_Image_button")
+        self.Create_page_missing_Image_button.setGeometry(QRect(1120, 650, 151, 81))
+        self.clear_page_missing_image_button = QPushButton(self.frame)
+        self.clear_page_missing_image_button.setObjectName(u"clear_page_missing_image_button")
+        self.clear_page_missing_image_button.setGeometry(QRect(1120, 770, 151, 81))
+        self.Page_Visit_Sequence_table = QTableWidget(self.frame)
+        if (self.Page_Visit_Sequence_table.columnCount() < 1):
+            self.Page_Visit_Sequence_table.setColumnCount(1)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.Page_Visit_Sequence_table.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        self.Page_Visit_Sequence_table.setObjectName(u"Page_Visit_Sequence_table")
+        self.Page_Visit_Sequence_table.setGeometry(QRect(490, 300, 121, 521))
+        self.Page_Visit_Sequence_table.setLineWidth(0)
+        self.Page_Visit_Sequence_table.setRowCount(0)
+        self.Page_Visit_Sequence_table.setColumnCount(1)
+        self.Create_change_number_Image_button = QPushButton(self.frame)
+        self.Create_change_number_Image_button.setObjectName(u"Create_change_number_Image_button")
+        self.Create_change_number_Image_button.setGeometry(QRect(1320, 650, 151, 81))
+        self.clear_change_number_image_button = QPushButton(self.frame)
+        self.clear_change_number_image_button.setObjectName(u"clear_change_number_image_button")
+        self.clear_change_number_image_button.setGeometry(QRect(1320, 770, 151, 81))
 
         self.retranslateUi(A_P_A)
-
-
-
 
         QMetaObject.connectSlotsByName(A_P_A)
     # setupUi
@@ -85,5 +103,14 @@ class Ui_A_P_A(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:22pt; font-weight:700;\">\u6027\u80fd\u5206\u6790\u6bd4\u8f83</span></p></body></html>", None))
+        self.Create_page_missing_Image_button.setText(QCoreApplication.translate("A_P_A", u"\u751f\u6210\u7f3a\u9875\u7387\u56fe\u50cf", None))
+        self.clear_page_missing_image_button.setText(QCoreApplication.translate("A_P_A", u"\u6e05\u7a7a\u7f3a\u9875\u7387\u56fe\u50cf", None))
+        ___qtablewidgetitem = self.Page_Visit_Sequence_table.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("A_P_A", u"\u9875\u9762\u8bbf\u95ee\u5e8f\u5217", None));
+#if QT_CONFIG(accessibility)
+        self.Page_Visit_Sequence_table.setAccessibleName("")
+#endif // QT_CONFIG(accessibility)
+        self.Create_change_number_Image_button.setText(QCoreApplication.translate("A_P_A", u"\u751f\u6210\u7f6e\u6362\u6b21\u6570\u56fe\u50cf", None))
+        self.clear_change_number_image_button.setText(QCoreApplication.translate("A_P_A", u"\u6e05\u7a7a\u7f6e\u6362\u6b21\u6570\u56fe\u50cf", None))
     # retranslateUi
 

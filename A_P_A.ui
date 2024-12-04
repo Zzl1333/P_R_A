@@ -151,6 +151,85 @@ li.checked::marker { content: &quot;\2612&quot;; }
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:22pt; font-weight:700;&quot;&gt;性能分析比较&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Create_page_missing_Image_button">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>650</y>
+      <width>151</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>生成缺页率图像</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_page_missing_image_button">
+    <property name="geometry">
+     <rect>
+      <x>1120</x>
+      <y>770</y>
+      <width>151</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清空缺页率图像</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="Page_Visit_Sequence_table">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>300</y>
+      <width>121</width>
+      <height>521</height>
+     </rect>
+    </property>
+    <property name="accessibleName">
+     <string/>
+    </property>
+    <property name="lineWidth">
+     <number>0</number>
+    </property>
+    <property name="rowCount">
+     <number>0</number>
+    </property>
+    <property name="columnCount">
+     <number>1</number>
+    </property>
+    <column>
+     <property name="text">
+      <string>页面访问序列</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QPushButton" name="Create_change_number_Image_button">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>650</y>
+      <width>151</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>生成置换次数图像</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clear_change_number_image_button">
+    <property name="geometry">
+     <rect>
+      <x>1320</x>
+      <y>770</y>
+      <width>151</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>清空置换次数图像</string>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
