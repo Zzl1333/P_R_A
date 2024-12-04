@@ -1,4 +1,5 @@
 import sys
+import random
 from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QLabel, QLineEdit, QPushButton, QTextEdit, QFileDialog, QGraphicsView, QGraphicsScene, QGraphicsRectItem, QGraphicsTextItem
 from PySide6.QtCore import Slot, Qt
 from PySide6.QtGui import QPen, QColor, QBrush
@@ -22,6 +23,7 @@ def FIFO(page_capacity, page_references, output_text_edit, graphics_scene):
         if page not in [p[0] for p in memory]:
             # 如果页面不在内存中，发生缺页
             page_faults += 1
+            output_text_edit.append(f"第{i + 1}页: {page} - 缺页")
             if len(memory) >= page_capacity:
                 # 如果内存已满，移除最早进入的页面
                 removed_page, _ = memory.pop(0)
@@ -32,12 +34,17 @@ def FIFO(page_capacity, page_references, output_text_edit, graphics_scene):
                         break
             # 添加新页面到内存
             memory.append((page, i + 1))  # 存储页面及其进入时间
+        else:
+            output_text_edit.append(f"第{i + 1}页: {page} - 命中")
         # 打印当前页面引用和内存状态
-        output_text_edit.append(f"第{i + 1}页: 内存状态 {[f'{p[0]}(t={p[1]})' for p in memory]}")
+        output_text_edit.append(f"内存状态 {[f'{p[0]}(t={p[1]})' for p in memory]}")
         # 更新绘图
         current_graphics = update_graphics_scene(graphics_scene, memory)
         step_graphics.append(current_graphics.copy())
 
+
+    page_fault_count =  len(page_references)-page_faults
+    output_text_edit.append(f"FIFO缺页中断次数为：{page_fault_count:.2f}")
     # 计算缺页率
     page_fault_rate = page_faults / len(page_references)
     output_text_edit.append(f"FIFO缺页率为：{page_fault_rate:.2f}")
@@ -47,7 +54,7 @@ def FIFO(page_capacity, page_references, output_text_edit, graphics_scene):
         graphics_scene.clear()
         for item in step:
             graphics_scene.addItem(item)
-         # 处理事件，确保图形更新
+        # 处理事件，确保图形更新
         import time
         time.sleep(2)  # 暂停1秒，以便观察每一步的变化
 
@@ -104,6 +111,8 @@ class FIFO(QMainWindow):
         self.run_button.clicked.connect(self.run_FIFO_step)
         self.clear_button = QPushButton("清除", self)
         self.clear_button.clicked.connect(self.clear_all)
+        self.generate_button = QPushButton("随机生成", self)  # 新增生成按钮
+        self.generate_button.clicked.connect(self.generate_random_values)  # 连接生成按钮到生成方法
 
         # 创建输出控件
         self.output_text_edit = QTextEdit(self)
@@ -125,6 +134,7 @@ class FIFO(QMainWindow):
         self.run_button.setGeometry(470, 560, 100, 30)
         self.run_once_button.setGeometry(470, 630, 100, 30)
         self.clear_button.setGeometry(470, 700, 100, 30)
+        self.generate_button.setGeometry(50, 770, 200, 30)  # 设置生成按钮的位置
         self.output_text_edit.setGeometry(760, 400, 500, 300)
         self.graphics_view.setGeometry(750, 50, 700, 300)
 
@@ -154,6 +164,7 @@ class FIFO(QMainWindow):
                 if page not in [p[0] for p in self.memory]:
                     # 如果页面不在内存中，发生缺页
                     self.page_faults += 1
+                    self.output_text_edit.append(f"第{self.step_index + 1}页: {page} - 缺页")
                     if len(self.memory) >= self.page_capacity:
                         # 如果内存已满，移除最早进入的页面
                         removed_page, _ = self.memory.pop(0)
@@ -164,8 +175,10 @@ class FIFO(QMainWindow):
                                 break
                     # 添加新页面到内存
                     self.memory.append((page, self.step_index + 1))  # 存储页面及其进入时间
+                else:
+                    self.output_text_edit.append(f"第{self.step_index + 1}页: {page} - 命中")
                 # 打印当前页面引用和内存状态
-                self.output_text_edit.append(f"第{self.step_index + 1}页: 内存状态 {[f'{p[0]}(t={p[1]})' for p in self.memory]}")
+                self.output_text_edit.append(f"内存状态 {[f'{p[0]}(t={p[1]})' for p in self.memory]}")
                 # 更新绘图
                 update_graphics_scene(self.graphics_scene, self.memory)
                 self.step_index += 1
@@ -173,6 +186,9 @@ class FIFO(QMainWindow):
                 # 计算缺页率
                 page_fault_rate = self.page_faults / len(self.page_references)
                 self.output_text_edit.append(f"FIFO缺页率为：{page_fault_rate:.2f}")
+                # 计算缺页中断次数
+                page_fault_count = self.page_faults
+                self.output_text_edit.append(f"FIFO缺页中断次数为：{page_fault_count}")
                 # 禁用运行按钮
                 self.run_button.setEnabled(False)
         except ValueError as e:
@@ -195,6 +211,7 @@ class FIFO(QMainWindow):
                 if page not in [p[0] for p in memory]:
                     # 如果页面不在内存中，发生缺页
                     page_faults += 1
+                    self.output_text_edit.append(f"第{step_index + 1}页: {page} - 缺页")
                     if len(memory) >= page_capacity:
                         # 如果内存已满，移除最早进入的页面
                         removed_page, _ = memory.pop(0)
@@ -205,14 +222,20 @@ class FIFO(QMainWindow):
                                 break
                     # 添加新页面到内存
                     memory.append((page, step_index + 1))  # 存储页面及其进入时间
+                else:
+                    self.output_text_edit.append(f"第{step_index + 1}页: {page} - 命中")
                 # 打印当前页面引用和内存状态
-                self.output_text_edit.append(f"第{step_index + 1}页: 内存状态 {[f'{p[0]}(t={p[1]})' for p in memory]}")
+                self.output_text_edit.append(f"内存状态 {[f'{p[0]}(t={p[1]})' for p in memory]}")
                 # 更新绘图
                 update_graphics_scene(self.graphics_scene, memory)
+
 
             # 计算缺页率
             page_fault_rate = page_faults / len(page_references)
             self.output_text_edit.append(f"FIFO缺页率为：{page_fault_rate:.2f}")
+            # 计算缺页中断次数
+            page_fault_count = page_faults
+            self.output_text_edit.append(f"FIFO缺页中断次数为：{page_fault_count}")
             # 禁用运行按钮
             self.run_button.setEnabled(False)
         except ValueError as e:
@@ -235,6 +258,16 @@ class FIFO(QMainWindow):
         # 重新启用运行按钮
         self.run_button.setEnabled(True)
 
+    @Slot()
+    def generate_random_values(self):
+        """
+        生成随机的页面序列和页面框数量。
+        """
+        page_capacity = random.randint(2, 5)
+        page_references = [random.randint(1, 20) for _ in range(random.randint(5, 15))]
+        self.page_capacity_input.setText(str(page_capacity))
+        self.page_references_input.setText(''.join(map(str, page_references)))
+
 
 def FIFO_control(parent=None):
     if parent is None:
@@ -244,5 +277,3 @@ def FIFO_control(parent=None):
     win = FIFO(parent)  # 传递 parent 参数
     win.show()
     return parent  # 返回 QApplication 实例以便在主程序中调用 exec()
-
-
