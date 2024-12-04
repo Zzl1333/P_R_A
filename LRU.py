@@ -10,6 +10,8 @@ class LRU_Window(QMainWindow, Ui_Form):
         self.setupUi(self)
         self.init_connections()
         self.usage_count = {}  # 用于跟踪每个页面的最后访问时间戳
+        self.hit_count = 0  # 页面命中次数
+        self.miss_count = 0  # 页面置换次数
 
     def init_connections(self):
         self.Back_L_S_P_Button.clicked.connect(self.close)
@@ -20,7 +22,7 @@ class LRU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_line.returnPressed.connect(self.generate_physical_blocks_from_line)
         self.Physical_block_generation_Button.clicked.connect(self.generate_physical_blocks_randomly)
         self.continue_button.clicked.connect(self.continue_read)
-        self.fill_blocks_button.clicked.connect(self.fill_physical_blocks)  # 新增的连接
+        self.fill_blocks_button.clicked.connect(self.fill_physical_blocks)
 
     def add_item_to_table(self, table, value, column=0):
         table.insertRow(table.rowCount())
@@ -82,6 +84,16 @@ class LRU_Window(QMainWindow, Ui_Form):
                     lru_index = i
         return lru_index
 
+    def update_hit_miss_display(self):
+        total_accesses = self.hit_count + self.miss_count
+        if total_accesses == 0:
+            page_fault_rate = 0
+        else:
+            page_fault_rate = (self.miss_count / total_accesses) * 100
+        # 使用 HTML 格式设置文本，使得缺页率和命中次数加粗并换行显示
+        self.Hit_Miss_Display.setHtml(f"缺页率: <b>{page_fault_rate:.2f}%</b><br><b>命中次数: {self.hit_count}</b>")
+
+
     def continue_read(self):
         page_to_access_item = self.Page_Visit_Sequence_table.item(0, 0)
         if not page_to_access_item:
@@ -98,7 +110,9 @@ class LRU_Window(QMainWindow, Ui_Form):
                 current_usage = int(usage_item.text())
                 self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem(str(current_usage + 1)))
                 self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+                self.hit_count += 1  # 页面命中
                 self.Page_Visit_Sequence_table.removeRow(0)
+                self.update_hit_miss_display()
                 return
 
         # 如果数据不在物理块中，找到第一个空的物理块或进行LRU页面置换
@@ -109,7 +123,9 @@ class LRU_Window(QMainWindow, Ui_Form):
                 self.Physical_block_generation_table.setItem(i, 0, QTableWidgetItem(page_to_access))
                 self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem("1"))
                 self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+                self.miss_count += 1  # 页面置换
                 self.Page_Visit_Sequence_table.removeRow(0)
+                self.update_hit_miss_display()
                 return
 
         # 如果所有物理块都不为空，则进行LRU页面置换
@@ -117,7 +133,15 @@ class LRU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_table.setItem(lru_index, 0, QTableWidgetItem(page_to_access))
         self.Physical_block_generation_table.setItem(lru_index, 1, QTableWidgetItem("1"))
         self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+        self.miss_count += 1  # 页面置换
         self.Page_Visit_Sequence_table.removeRow(0)
+        self.update_hit_miss_display()
+
+    def clear_physical_blocks(self):
+        self.clear_table(self.Physical_block_generation_table)
+        self.hit_count = 0
+        self.miss_count = 0
+        self.update_hit_miss_display()
 
     def fill_physical_blocks(self):
         # 遍历页面访问序列表中的所有项
@@ -126,6 +150,7 @@ class LRU_Window(QMainWindow, Ui_Form):
             if page_to_access_item:
                 page_to_access = page_to_access_item.text()
                 # 查找物理块中是否存在该页面
+                page_found = False
                 for i in range(self.Physical_block_generation_table.rowCount()):
                     current_item = self.Physical_block_generation_table.item(i, 0)
                     if current_item is None or current_item.text() == "":
@@ -140,16 +165,17 @@ class LRU_Window(QMainWindow, Ui_Form):
                         current_usage = int(usage_item.text())
                         self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem(str(current_usage + 1)))
                         self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+                        page_found = True
                         break
+
+                if page_found:
+                    self.hit_count += 1  # 页面命中
                 else:
-                    # 如果物理块都满了，进行LRU页面置换
-                    lru_index = self.find_least_recently_used()
-                    self.Physical_block_generation_table.setItem(lru_index, 0, QTableWidgetItem(page_to_access))
-                    self.Physical_block_generation_table.setItem(lru_index, 1, QTableWidgetItem("1"))
-                    self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+                    self.miss_count += 1  # 页面置换
 
         # 清空页面访问序列
         self.clear_sequence()
+        self.update_hit_miss_display()
 
 def LRU_control(parent=None):
     if parent is None:
