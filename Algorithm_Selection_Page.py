@@ -16,12 +16,9 @@ class MainWindow(QMainWindow, Ui_Page_Replacement_Algorithm):
    def init_slots(self):
        self.LFU.clicked.connect(self.LFU_bulid)
        self.FIFO.clicked.connect(self.FIFO_bulid)
-       """self.OPT.clicked.connect(self.OPT_bulid)"""
+       self.OPT.clicked.connect(self.OPT_bulid)
        self.LRU.clicked.connect(self.LRU_bulid)
        self.Algorithm_performance_analysis_button.clicked.connect(self.algorithm_performance_analysis_build)
-
-
-
 
    def LFU_bulid(self) :
         LFU_control(self)
