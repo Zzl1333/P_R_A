@@ -90,8 +90,11 @@ class LFU_Window(QMainWindow, Ui_Form):
         self.Physical_block_generation_table.setRowCount(0)
         self.now_insert = 0
         self.page_missing_show.clear()
+        self.page_shoting_show.clear()
+        self.change_number_show.clear()
         self.total_ask_number = 0
         self.missing_number = 0
+        self.shoting_number = 0
 
     def continue_read(self):
         self.total_ask_number += 1
