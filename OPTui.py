@@ -22,11 +22,11 @@ from PySide6.QtWidgets import (QApplication, QHeaderView, QLineEdit, QPlainTextE
 class Ui_SS(object):
     def setupUi(self, SS):
         if not SS.objectName():
-            SS.setObjectName(u"SS")
-        SS.resize(1347, 933)
+            SS.setObjectName(u"OPT 理想最佳算法")
+        SS.resize(1600, 900)
         self.plainTextEdit = QPlainTextEdit(SS)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        self.plainTextEdit.setGeometry(QRect(-10, -20, 1361, 951))
+        self.plainTextEdit.setGeometry(QRect(0, 0, 1600, 900))
         self.textEdit = QTextEdit(SS)
         self.textEdit.setObjectName(u"textEdit")
         self.textEdit.setGeometry(QRect(500, 40, 231, 41))

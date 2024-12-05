@@ -22,7 +22,7 @@ from PySide6.QtWidgets import (QApplication, QHeaderView, QLineEdit, QPlainTextE
 class Ui_Form(object):
     def setupUi(self, Form):
         if not Form.objectName():
-            Form.setObjectName(u"Form")
+            Form.setObjectName(u"LFU 最近未使用算法")
         Form.resize(1600, 900)
         self.textBrowser = QTextBrowser(Form)
         self.textBrowser.setObjectName(u"textBrowser")
@@ -133,7 +133,7 @@ class Ui_Form(object):
     # setupUi
 
     def retranslateUi(self, Form):
-        Form.setWindowTitle(QCoreApplication.translate("Form", u"Form", None))
+        Form.setWindowTitle(QCoreApplication.translate("Form", u"LFU 最近未使用算法", None))
         self.textBrowser.setHtml(QCoreApplication.translate("Form", u"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"

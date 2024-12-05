@@ -9,7 +9,7 @@ class Ui_Form(object):
         if not Form.objectName():
             Form.setObjectName("Form")
         Form.resize(1600, 900)
-        Form.setWindowTitle("LRU")  # 设置窗口标题为 "LRU"
+        Form.setWindowTitle("LRU 最近最久未选择算法")  # 设置窗口标题为 "LRU"
 
         # 新增的显示缺页率和置换次数的文本框
         self.Hit_Miss_Display = QTextBrowser(Form)
