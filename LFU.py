@@ -54,6 +54,9 @@ class LFU_Window(QMainWindow, Ui_Form):
 
     def Sequence_generation_Button_makeup(self):
         """点击一件生成序列按钮"""
+        self.Page_Visit_Sequence_table.clearContents()
+        self.Page_Visit_Sequence_table.setRowCount(0)
+        self.code_number = 0
         self.random_number = random.randint(10 ** 19, 10 ** 20 - 1)
         self.random_number = str(self.random_number)
         for code in self.random_number:

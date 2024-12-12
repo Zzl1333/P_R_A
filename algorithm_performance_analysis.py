@@ -81,6 +81,7 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         global user_frame_size
         user_frame_size_str = self.lineEdit_2.text()
         user_frame_size = int(user_frame_size_str)
+        self.page_missing_show.setText(user_frame_size_str)
 
     def l_Sequence_generation_Button(self):
         table = self.Page_Visit_Sequence_table
@@ -113,10 +114,12 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         global user_frame_size
         user_frame_size_str = str(random.randint(5, 15))
         user_frame_size = int(user_frame_size_str)
+        self.page_missing_show.setText(user_frame_size_str)
 
     def l_pushButton_5(self):
         global user_frame_size
         self.lineEdit_2.clear()
+        self.page_missing_show.clear()
         user_frame_size=0
 
     def Create_page_missing_Image(self):
@@ -181,6 +184,7 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         number2=number-faultss1
         rate1 = number2 / number
 
+
         faultss2 = 0
         use_fame = list()
         frames = []  # 用来存储页面的列表
@@ -211,6 +215,7 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         number2 = number - faultss2
         rate2 = number2 / number
 
+
         faultss3 = 0
         frames = OrderedDict()  # 用于存储当前在内存中的页面及其顺序
         for page in user_pages:
@@ -228,6 +233,9 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
 
         number2 = number - faultss3
         rate3 = number2 / number
+
+
+
 
         self.plot1()
 
@@ -291,7 +299,7 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         plotWidget.setParent(self.frame)  # 设置父控件
     def addPlot2WidgetToFrame(self, plotWidget, x_offset):
         # 设置 PlotWidget 的位置和大小
-        plotWidget.setGeometry(self.frame_x + x_offset + 1200, self.frame.y()+150, self.frame_width // 2 - 400, self.frame_height - 550)
+        plotWidget.setGeometry(self.frame_x + x_offset + 1150, self.frame.y()+150, self.frame_width // 2 - 400, self.frame_height - 550)
         # 将 PlotWidget 添加到窗口
         plotWidget.setParent(self.frame)  # 设置父控件
 

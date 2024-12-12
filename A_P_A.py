@@ -23,10 +23,10 @@ class Ui_A_P_A(object):
     def setupUi(self, A_P_A):
         if not A_P_A.objectName():
             A_P_A.setObjectName(u"A_P_A")
-        A_P_A.resize(1600, 900)
+        A_P_A.resize(1598, 900)
         self.frame = QFrame(A_P_A)
         self.frame.setObjectName(u"frame")
-        self.frame.setGeometry(QRect(0, 0, 1600, 900))
+        self.frame.setGeometry(QRect(10, 0, 1600, 921))
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.pushButton = QPushButton(self.frame)
@@ -68,7 +68,7 @@ class Ui_A_P_A(object):
         __qtablewidgetitem = QTableWidgetItem()
         self.Page_Visit_Sequence_table.setHorizontalHeaderItem(0, __qtablewidgetitem)
         self.Page_Visit_Sequence_table.setObjectName(u"Page_Visit_Sequence_table")
-        self.Page_Visit_Sequence_table.setGeometry(QRect(490, 300, 121, 521))
+        self.Page_Visit_Sequence_table.setGeometry(QRect(510, 300, 121, 521))
         self.Page_Visit_Sequence_table.setLineWidth(0)
         self.Page_Visit_Sequence_table.setRowCount(0)
         self.Page_Visit_Sequence_table.setColumnCount(1)
@@ -83,7 +83,13 @@ class Ui_A_P_A(object):
         self.textBrowser_2.setGeometry(QRect(850, 550, 101, 31))
         self.textBrowser_3 = QTextBrowser(self.frame)
         self.textBrowser_3.setObjectName(u"textBrowser_3")
-        self.textBrowser_3.setGeometry(QRect(1390, 550, 101, 31))
+        self.textBrowser_3.setGeometry(QRect(1350, 550, 101, 31))
+        self.page_missing_show = QLineEdit(self.frame)
+        self.page_missing_show.setObjectName(u"page_missing_show")
+        self.page_missing_show.setGeometry(QRect(930, 800, 151, 51))
+        self.page_missing_show_2 = QLineEdit(self.frame)
+        self.page_missing_show_2.setObjectName(u"page_missing_show_2")
+        self.page_missing_show_2.setGeometry(QRect(840, 800, 71, 51))
 
         self.retranslateUi(A_P_A)
 
@@ -91,7 +97,7 @@ class Ui_A_P_A(object):
     # setupUi
 
     def retranslateUi(self, A_P_A):
-        A_P_A.setWindowTitle(QCoreApplication.translate("A_P_A", u"性能分析比较页面", None))
+        A_P_A.setWindowTitle(QCoreApplication.translate("A_P_A", u"Form", None))
         self.pushButton.setText(QCoreApplication.translate("A_P_A", u"\u8fd4\u56de\u4e3b\u754c\u9762", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("A_P_A", u"\u8bf7\u8f93\u5165\u9875\u9762\u8bbf\u95ee\u5e8f\u5217\uff08\u652f\u6301\u4e00\u952e\u751f\u621020\u4f4d\u5f85\u6d4b\u5e8f\u5217,\u56de\u8f66\u505c\u6b62\u8f93\u5165\uff09", None))
@@ -134,5 +140,6 @@ class Ui_A_P_A(object):
 "li.checked::marker { content: \"\\2612\"; }\n"
 "</style></head><body style=\" font-family:'Microsoft YaHei UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">     \u7f6e\u6362\u6b21\u6570</p></body></html>", None))
+        self.page_missing_show_2.setText(QCoreApplication.translate("A_P_A", u"\u7269\u7406\u5feb\u6570", None))
     # retranslateUi
 
