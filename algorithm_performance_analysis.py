@@ -182,7 +182,9 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
         rate1 = number2 / number
 
         faultss2 = 0
-        frames = OrderedDict()  # 用来存储页面及其访问次数的字典，同时保持插入顺序
+        use_fame = list()
+        frames = []  # 用来存储页面的列表
+
         for page in user_pages:
             if page not in frames:
                 # 如果页面不在帧中，则发生缺页
@@ -190,13 +192,21 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
                 # 如果帧已满，需要找到一个最不常使用的页面进行置换
                 if len(frames) == user_frame_size:
                     # 找到访问次数最少的页面（即最不常使用的页面）
-                    lfu_page = min(frames, key=frames.get)
-                    frames.pop(lfu_page)
-                # 将新页面添加到帧中，并设置其访问次数为1
-                frames[page] = 1
+                    # 这里我们需要一个辅助的数据结构来存储每个页面的访问次数
+                    page_count = {p: use_fame.count(p) for p in frames}
+                    lfu_page = min(page_count, key=page_count.get)
+                    # 将找到的页面位置置为空
+                    frames[frames.index(lfu_page)] = None
+                    frames[frames.index(None)] = page
+                # 将新页面添加到帧中
+                else : frames.append(page)
             else:
                 # 如果页面已在帧中，则增加其访问次数
-                frames[page] += 1
+                # 这里我们需要更新辅助数据结构中的计数
+                use_fame.append(page)
+
+        # 清理列表中的空位置
+        frames = [p for p in frames if p is not None]
 
         number2 = number - faultss2
         rate2 = number2 / number
