@@ -9,8 +9,6 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
 from PySide6.QtCore import QFile, QObject
 from PySide6.QtUiTools import QUiLoader
-
-
 user_pages=''
 user_frame_size=0
 faultss=0
@@ -25,7 +23,7 @@ class Stats(QMainWindow,Ui_SS):
         super(Stats, self).__init__(parent)  # 正确传递 parent 参数
         self.setupUi(self)
         # 再加载界面
-        self.pushButton.clicked.connect(self.close)
+        self.pushButton.clicked.connect(self.cllear)
         self.lineEdit.returnPressed.connect(self.edit)
         self.lineEdit_2.returnPressed.connect(self.edit_2)
         self.pushButton_2.clicked.connect(self.l_pushButton_2)
@@ -36,6 +34,14 @@ class Stats(QMainWindow,Ui_SS):
         self.pushButton_7.clicked.connect(self.l_pushButton_7)
         table=self.tableWidget
         table1=self.tableWidget_2
+
+    def cllear(self):
+        user_frame_size = 0
+        global faultss
+        faultss = 0
+        number = -1
+        number2 = 0
+        self.close()
     def edit(self):
         table = self.tableWidget
         global number
@@ -104,8 +110,12 @@ class Stats(QMainWindow,Ui_SS):
         global user_frame_size
         user_frame_size_str = str(random.randint(5, 15))
         user_frame_size = int(user_frame_size_str)
-        for i in range(user_frame_size):
-            table1.insertRow(0)
+        pages1 = user_frame_size
+        # 首先，根据 pages1 列表的长度插入相应数量的行
+        table1.setRowCount( user_frame_size)
+        # 然后，遍历 pages1 列表，并将每个页面作为文本设置到相应的表格项中
+        for i in range( user_frame_size):
+            table1.setItem(i, 0, "")  # 将项放置在正确的行（i）和列（0）中
     def l_pushButton_5(self):
         global number
         number = 0
