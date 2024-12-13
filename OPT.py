@@ -169,7 +169,7 @@ class Stats(QMainWindow,Ui_SS):
             rate1 = number3 / number
             percentage1 = "{:.2%}".format(rate1)
             self.lineEdit_3.setText(percentage1)
-            number2 = str(number)
+            number2 = str(faultss)
             self.lineEdit_8.setText(number2)
     def l_pushButton_7(self):
         global number
@@ -218,7 +218,7 @@ class Stats(QMainWindow,Ui_SS):
             rate1 = number3 / number
             percentage1 = "{:.2%}".format(rate1)
             self.lineEdit_3.setText(percentage1)
-            number2 = str(number)
+            number2 = str(faultss)
             self.lineEdit_8.setText(number2)
             frame1=frame
             for i, frame1 in enumerate(frame):

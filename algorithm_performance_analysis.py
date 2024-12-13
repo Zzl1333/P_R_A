@@ -271,7 +271,7 @@ class A_P_A_Window(QMainWindow, Ui_A_P_A):
     def plot2(self):
         # 绘制一些其他数据到第二个 PlotWidget
         x = list(range(4))
-        y2 = [faultss,faultss1,faultss2,faultss3]
+        y2 = [faultss1,faultss3,faultss2,faultss]
         self.plotWidget2.plot(x, y2, pen=pg.mkPen(color=(255, 0, 0), width=3))
         self.setCustomXAxisLabels(self.plotWidget2)
 

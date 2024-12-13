@@ -85,6 +85,7 @@ class Ui_Form(object):
         self.Back_L_S_P_Button.setFont(font)
         self.Back_L_S_P_Button.setText(QCoreApplication.translate("Form", "退回初始选择界面", None))
 
+        # 新增的文本框
         self.lruParamDescription = QPlainTextEdit(Form)
         self.lruParamDescription.setGeometry(QRect(150, 250, 411, 180))  # 设置文本框的位置和大小
         self.lruParamDescription.setObjectName("lruParamDescription")
@@ -92,11 +93,6 @@ class Ui_Form(object):
             "一种常用的页面置换算法，选择最近最久未使用的页面予以淘汰。该算法赋予每个页面一个访问字段，用来记录一个页面自上次被访问以来所经历的时间 t，当须淘汰一个页面时，选择现有页面中其 t 值最大的，即最近最少使用的页面予以淘汰。"
         )
         self.lruParamDescription.setReadOnly(True)  # 设置文本框为只读，不允许用户编辑
-
-        # 设置字体大小
-        font = QFont()
-        font.setPointSize(16)  # 将字体大小设置为16
-        self.lruParamDescription.setFont(font)
 
         # 将按钮的字体应用到文本框
         self.lruParamDescription.setFont(font)  # 使用之前定义的font变量
