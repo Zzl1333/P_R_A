@@ -97,7 +97,7 @@ class Ui_A_P_A(object):
     # setupUi
 
     def retranslateUi(self, A_P_A):
-        A_P_A.setWindowTitle(QCoreApplication.translate("A_P_A", u"Form", None))
+        A_P_A.setWindowTitle(QCoreApplication.translate("A_P_A", u"算法性能分析", None))
         self.pushButton.setText(QCoreApplication.translate("A_P_A", u"\u8fd4\u56de\u4e3b\u754c\u9762", None))
         self.lineEdit.setText("")
         self.lineEdit.setPlaceholderText(QCoreApplication.translate("A_P_A", u"\u8bf7\u8f93\u5165\u9875\u9762\u8bbf\u95ee\u5e8f\u5217\uff08\u652f\u6301\u4e00\u952e\u751f\u621020\u4f4d\u5f85\u6d4b\u5e8f\u5217,\u56de\u8f66\u505c\u6b62\u8f93\u5165\uff09", None))
