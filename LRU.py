@@ -153,33 +153,44 @@ class LRU_Window(QMainWindow, Ui_Form):
 
     def fill_physical_blocks(self):
         # 遍历页面访问序列表中的所有项
-        for row in range(self.Page_Visit_Sequence_table.rowCount()):
-            page_to_access_item = self.Page_Visit_Sequence_table.item(row, 0)
-            if page_to_access_item:
-                page_to_access = page_to_access_item.text()
-                # 查找物理块中是否存在该页面
-                page_found = False
-                for i in range(self.Physical_block_generation_table.rowCount()):
-                    current_item = self.Physical_block_generation_table.item(i, 0)
-                    if current_item is None or current_item.text() == "":
-                        # 找到空的物理块，直接放入
-                        self.Physical_block_generation_table.setItem(i, 0, QTableWidgetItem(page_to_access))
-                        self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem("1"))
-                        self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
-                        break
-                    elif current_item.text() == page_to_access:
-                        # 如果页面已存在，增加访问次数
-                        usage_item = self.Physical_block_generation_table.item(i, 1)
-                        current_usage = int(usage_item.text())
-                        self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem(str(current_usage + 1)))
-                        self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
-                        page_found = True
-                        break
+        while self.Page_Visit_Sequence_table.rowCount() > 0:
+            page_to_access_item = self.Page_Visit_Sequence_table.item(0, 0)
+            if not page_to_access_item:
+                break  # 如果没有页面访问序列，直接返回
 
-                if page_found:
+            page_to_access = page_to_access_item.text()
+            max_row = self.Physical_block_generation_table.rowCount()
+
+            # 检查数据是否已经存在于物理块中
+            for i in range(max_row):
+                current_item = self.Physical_block_generation_table.item(i, 0)
+                if current_item and current_item.text() == page_to_access:
+                    usage_item = self.Physical_block_generation_table.item(i, 1)
+                    current_usage = int(usage_item.text())
+                    self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem(str(current_usage + 1)))
+                    self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
                     self.hit_count += 1  # 页面命中
-                else:
+                    break
+                elif current_item is None or current_item.text() == "":
+                    # 找到空的物理块，直接放入
+                    self.Physical_block_generation_table.setItem(i, 0, QTableWidgetItem(page_to_access))
+                    self.Physical_block_generation_table.setItem(i, 1, QTableWidgetItem("1"))
+                    self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
                     self.miss_count += 1  # 页面置换
+                    break
+            else:
+                # 如果所有物理块都不为空，则进行LRU页面置换
+                lru_index = self.find_least_recently_used()
+                self.Physical_block_generation_table.setItem(lru_index, 0, QTableWidgetItem(page_to_access))
+                self.Physical_block_generation_table.setItem(lru_index, 1, QTableWidgetItem("1"))
+                self.usage_count[page_to_access] = time.time()  # 更新最后使用时间为当前时间戳
+                self.miss_count += 1  # 页面置换
+
+            self.Page_Visit_Sequence_table.removeRow(0)  # 移除已处理的页面
+            self.update_hit_miss_display()  # 更新显示
+
+        # 处理完毕后，更新显示
+        self.update_hit_miss_display()
 
         # 清空页面访问序列
         self.clear_sequence()
